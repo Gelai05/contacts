@@ -29,9 +29,9 @@ if (!isset($_SESSION['id'])) {
                             </h1>
                         </div>
                         <div class="mb-3">
-                            <p>
-                                Hello, <strong><?php echo $_SESSION['username']; ?></strong>
-                            </p>
+                            <h1 class="text-muted">
+                                Welcome <span class="text-dark fw-bold"><?php echo $_SESSION['username']; ?></span>
+                            </h1>
                         </div>
                         <div class="mb-3 d-grid">
                             <a href="contacts.php" class="btn btn-primary">
