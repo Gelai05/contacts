@@ -91,11 +91,11 @@
                                 <input id="phone" name="phone" type="number" class="form-control" value="<?php echo $contact['phone'] ?>">
                             </div>
                             <select class="form-select" name="type" id="type">
-                                <option value="Home" <?php echo ($contact['type'] = Home) ? 'selected' : '' ?>>Home</option>
-                                <option value="Friend" <?php echo ($contact['type'] = Friend) ? 'selected' : '' ?>>Friend</option>
-                                <option value="Random" <?php echo ($contact['type'] = Random) ? 'selected' : '' ?>>Random</option>
+                                <option value="Home" <?php echo ($contact['type'] == "Home") ? 'selected' : '' ?>>Home</option>
+                                <option value="Friend" <?php echo ($contact['type'] == "Friend") ? 'selected' : '' ?>>Friend</option>
+                                <option value="Random" <?php echo ($contact['type'] == "Random") ? 'selected' : '' ?>>Random</option>
                             </select>
-                            <div class="mb-3">
+                            <div class="my-3">
                                 <button type="submit" name="submit" class="btn btn-primary">UPDATE</button>
                             </div>
 
