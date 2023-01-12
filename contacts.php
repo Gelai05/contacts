@@ -23,6 +23,11 @@ $result = $conn->query($sql);
     <h1 class="text-center">LOGIN FORM</h1>
     <div class="container">
         <div class="row justify-content-center">
+            <a href="add-contact.php">
+                <button class="btn btn-md btn-primary float-end">
+                    ADD NEW CONTACT
+                </button>
+            </a>
             <div class="col-md-6">
                 <table class="table">
                     <thead>
@@ -48,8 +53,17 @@ $result = $conn->query($sql);
                                 <td> $name </td>
                                 <td> $email  </td>
                                 <td> $phone</td>
+                                <td>
+                                <a href='edit-contact.php?id=$id'>
+                                    <button class='btn btn-primary mb-2 w-100'>
+                                        EDIT
+                                    </button>
+                                </a>
+                                </td>
                                 </tr>";
                             }
+                        } else {
+                            echo "No Contacts Available";
                         }
                         ?>
                     </tbody>
