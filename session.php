@@ -17,15 +17,32 @@ if (!isset($_SESSION['id'])) {
     <title>Group 1</title>
 </head>
 
-<body>
-    <h1 class="text-center">CONTACT LIST</h1>
-    <div class="container">
+<body class="bg-dark">
+    <div class="container py-5">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                        Hello,<?php echo $_SESSION['username']; ?>
-
+                        <div class="mb-5">
+                            <h1 class="text-center">
+                                SESSION PAGE
+                            </h1>
+                        </div>
+                        <div class="mb-3">
+                            <p>
+                                Hello, <strong><?php echo $_SESSION['username']; ?></strong>
+                            </p>
+                        </div>
+                        <div class="mb-3 d-grid">
+                            <a href="contacts.php" class="btn btn-primary">
+                                Manage Contact
+                            </a>
+                        </div>
+                        <div class="mb-3 d-grid">
+                            <a href="server/logout.php" class="btn btn-danger">
+                                Logout
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

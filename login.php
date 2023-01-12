@@ -1,7 +1,10 @@
 <?php
 session_start();
 
-
+if (isset($_SESSION['id'])) {
+    header('location: session');
+    return;
+}
 ?>
 
 
@@ -16,13 +19,27 @@ session_start();
     <title>Group 1</title>
 </head>
 
-<body>
-    <h1 class="text-center">LOGIN FORM</h1>
-    <div class="container">
+<body class="bg-dark">
+    <div class="container py-5">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
+                        <div class="mb-5">
+                            <h1 class="text-center">
+                                LOGIN PAGE
+                            </h1>
+                        </div>
+                        <?php
+                        if (isset($_SESSION['success'])) {
+                            echo '<div class="mb-3 alert alert-success">' . $_SESSION["success"] . '</div>';
+                            unset($_SESSION['success']);
+                        }
+                        if (isset($_SESSION['error'])) {
+                            echo '<div class="mb-3 alert alert-danger">' . $_SESSION["error"] . '</div>';
+                            unset($_SESSION['error']);
+                        }
+                        ?>
                         <form action='server/loginuser.php' method='POST'>
                             <div class="form-group mb-3">
                                 <label for="username">Username</label>
@@ -32,16 +49,16 @@ session_start();
                                 <label for="password">Password</label>
                                 <input id="password" name="password" type="password" class="form-control">
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 d-grid">
                                 <button type="submit" class="btn btn-primary">Login</button>
                             </div>
-                            <span>
-                                Don't have an account?
-                                <a href="register.php">Register</a>
-                            </span>
-
+                            <div class="text-center">
+                                <span class="text-muted">
+                                    Don't have an account?
+                                    <a href="register.php" class="text-dark fw-bold">Register</a>
+                                </span>
+                            </div>
                         </form>
-
                     </div>
                 </div>
             </div>

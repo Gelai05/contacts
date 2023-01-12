@@ -49,18 +49,29 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous" />
     <title>Document</title>
 </head>
-<body>
-    <div class="container">
-        <div class="row d-flex justify-content-center align-items-center">
-            <div class="col-md-6 ">
+
+<body class="bg-dark">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
                 <?php 
                     if(isset($_SESSION['error'])){
                         echo '<div class="mb-3 alert alert-danger mt-5">' . $_SESSION["error"] . '</div>';
                         unset($_SESSION['error']);
                     }
                 ?>  
-                <div class="card mt-5">
+                <div class="card">
                     <div class="card-body">
+                        <div class="mb-5">
+                            <h1 class="text-center">
+                                ADD NEW CONTACT
+                            </h1>
+                        </div>
+                        <div class="mb-5 d-flex justify-content-between">
+                            <a href="contacts.php" class="btn btn-md btn-primary">
+                                Back to Contacts
+                            </a>
+                        </div>
                         <form method='POST'>
                             <div class="form-group mb-3">
                                 <label for="name">Name</label>
@@ -74,15 +85,17 @@
                                 <label for="phone">Phone</label>
                                 <input id="phone" name="phone" type="number" class="form-control">
                             </div>
-                            <select class="form-select" name="type" id="type">
-                                <option value="Home" >Home</option>
-                                <option value="Friend">Friend</option>
-                                <option value="Random">Random</option>
-                            </select>
-                            <div class="my-3">
+                            <div class="mb-3">
+                                <label for="type">Select Type</label>
+                                <select class="form-select" name="type" id="type">
+                                    <option value="Home" >Home</option>
+                                    <option value="Friend">Friend</option>
+                                    <option value="Random">Random</option>
+                                </select>
+                            </div>
+                            <div class="mb-3 d-grid">
                                 <button type="submit" name="submit" class="btn btn-primary">ADD</button>
                             </div>
-
                         </form>
                     </div>
                 </div>

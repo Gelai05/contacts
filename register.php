@@ -1,9 +1,10 @@
 <?php
 session_start();
 
-
-
-
+if (isset($_SESSION['id'])) {
+    header('location: session');
+    return;
+}
 ?>
 
 
@@ -18,23 +19,27 @@ session_start();
     <title>Group 1</title>
 </head>
 
-<body>
-    <h1 class="text-center">REGISTRATION FORM</h1>
-    <div class="container">
+<body class="bg-dark">
+    <div class="container py-5">
         <div class="row justify-content-center">
-            <div class="col-md-6">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                        <?php 
-                        if(isset($_SESSION['error'])){
+                        <div class="mb-5">
+                            <h1 class="text-center">
+                                REGISTER PAGE
+                            </h1>
+                        </div>
+                        <?php
+                        if (isset($_SESSION['error'])) {
                             echo '<div class="mb-3 alert alert-danger">' . $_SESSION["error"] . '</div>';
                             unset($_SESSION['error']);
                         }
-                        ?>              
+                        ?>
                         <form action='server/registeruser.php' method='POST'>
                             <div class="form-group mb-3">
                                 <label for="username">Username</label>
-                                <input id="username" name="username" type="text" class="form-control" >        
+                                <input id="username" name="username" type="text" class="form-control">
                             </div>
                             <div class="form-group mb-3">
                                 <label for="password">Password</label>
@@ -44,15 +49,16 @@ session_start();
                                 <label for="confirmPassword"> Confirm Password</label>
                                 <input id="confirmPassword" name="confirmPassword" type="password" class="form-control">
                             </div>
-                            <div class="mb-3">
+                            <div class="mb-3 d-grid">
                                 <button type="submit" class="btn btn-primary">Register</button>
                             </div>
-                            <span>
-                                Already Have An Account?
-                                <a href="login.php">Login </a>
-                            </span>
+                            <div class="text-center">
+                                <span class="text-muted">
+                                    Already have an account?
+                                    <a href="login.php" class="text-dark fw-bold">Login</a>
+                                </span>
+                            </div>
                         </form>
-
                     </div>
                 </div>
             </div>
