@@ -42,6 +42,7 @@ $result = $conn->query($sql);
                             <th scope="col">name</th>
                             <th scope="col">Email</th>
                             <th scope="col">Phone</th>
+                            <th scope="col">Type</th>
                             <th scope="col">Action</th>
 
                         </tr>
@@ -54,11 +55,13 @@ $result = $conn->query($sql);
                                 $name = $contact['name'];
                                 $email = $contact['email'];
                                 $phone = $contact['phone'];
+                                $type = $contact['type'];
                                 echo "<tr>
                                 <td> $id </td>
                                 <td> $name </td>
                                 <td> $email </td>
                                 <td> $phone </td>
+                                <td> $type </td>
                                 <td>
                                 <a href='edit-contact.php?id=$id'>
                                     <button class='btn btn-primary mb-2 w-100'>

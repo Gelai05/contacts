@@ -9,6 +9,7 @@
         $name = $_POST['name'];
         $email = $_POST['email'];
         $phone = $_POST['phone'];
+        $type = $_POST['type'];
 
         //VALIDATION
         if($name == ''){
@@ -27,8 +28,8 @@
             return;
         }
         //QUERY INSERT
-        $sql = "INSERT INTO contacts (name, email, phone)
-                VALUES ('$name', '$email', '$phone')";
+        $sql = "INSERT INTO contacts (name, email, phone, type)
+                VALUES ('$name', '$email', '$phone', '$type')";
         //run query
         if(!$conn->query($sql)) {
             $_SESSION['error'] = "Something went wrong";
@@ -73,7 +74,12 @@
                                 <label for="phone">Phone</label>
                                 <input id="phone" name="phone" type="number" class="form-control">
                             </div>
-                            <div class="mb-3">
+                            <select class="form-select" name="type" id="type">
+                                <option value="Home" >Home</option>
+                                <option value="Friend">Friend</option>
+                                <option value="Random">Random</option>
+                            </select>
+                            <div class="my-3">
                                 <button type="submit" name="submit" class="btn btn-primary">ADD</button>
                             </div>
 

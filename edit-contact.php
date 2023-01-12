@@ -23,6 +23,8 @@
         $name = $_POST['name'];
         $email = $_POST['email'];
         $phone = $_POST['phone'];
+        $type = $_POST['type'];
+
 
         //VALIDATION
         if($name == ''){
@@ -41,7 +43,7 @@
             return;
         }
         //QUERY INSERT
-        $sql = "UPDATE contacts SET name='$name', email='$email', phone='$phone'
+        $sql = "UPDATE contacts SET name='$name', email='$email', phone='$phone', type='$type'
                 WHERE id='$id'";
         //run query
         if(!$conn->query($sql)) {
@@ -88,6 +90,11 @@
                                 <label for="phone">Phone</label>
                                 <input id="phone" name="phone" type="number" class="form-control" value="<?php echo $contact['phone'] ?>">
                             </div>
+                            <select class="form-select" name="type" id="type">
+                                <option value="Home" <?php echo ($contact['type'] = Home) ? 'selected' : '' ?>>Home</option>
+                                <option value="Friend" <?php echo ($contact['type'] = Friend) ? 'selected' : '' ?>>Friend</option>
+                                <option value="Random" <?php echo ($contact['type'] = Random) ? 'selected' : '' ?>>Random</option>
+                            </select>
                             <div class="mb-3">
                                 <button type="submit" name="submit" class="btn btn-primary">UPDATE</button>
                             </div>
