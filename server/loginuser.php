@@ -17,6 +17,7 @@ if($password == ''){
     header('location: ../login.php');
     return;
 }
+
 //Select Query
 $sql = "SELECT * FROM users WHERE username='$username'";
 $result = $conn->query($sql);
@@ -37,6 +38,7 @@ if (!password_verify($password,$user['password'])){
     header('location: ../login.php');
     return;
 }
+
 //Storing User ID to Session Superglobal
 $_SESSION['id'] = $user['id'];
 $_SESSION['username'] = $user['username'];

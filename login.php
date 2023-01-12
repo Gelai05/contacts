@@ -23,7 +23,7 @@ session_start();
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-body">
-                        <form action='server/login.php' method='POST'>
+                        <form action='server/loginuser.php' method='POST'>
                             <div class="form-group mb-3">
                                 <label for="username">Username</label>
                                 <input id="username" name="username" type="text" class="form-control">
