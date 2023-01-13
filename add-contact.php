@@ -1,6 +1,12 @@
 <?php
 
     session_start();
+
+    if (!isset($_SESSION['id'])) {
+        header('location: login.php');
+        return;
+    }
+
     include 'server/dbconnect.php';
     
 

@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (!isset($_SESSION['id'])) {
+    header('location: login.php');
+    return;
+}
+
 include 'server/dbconnect.php';
 
 $sql = "SELECT * FROM contacts ORDER BY id DESC";
